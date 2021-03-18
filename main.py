@@ -1,4 +1,4 @@
-from selenium import selenium
+#from selenium import selenium
 from selenium import webdriver
 import os
 
