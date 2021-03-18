@@ -10,7 +10,21 @@ chrome_options.add_argument("--no-sandbox")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 # Now you can start using Selenium
-driver.get('http://www.google.com');
 print(driver.title)
 
-#driver.quit();
+driver.get ('https://my.te.eg/#/home/signin')
+print(driver.title)
+time.sleep(5)
+driver.find_element_by_id('MobileNumberID').send_keys('0238728551')
+time.sleep(1)
+driver.find_element_by_id ('PasswordID').send_keys('mni0AMHK')
+time.sleep(1)
+driver.find_element_by_id('singInBtn').click()
+time.sleep(5)
+print(driver.title)
+
+
+
+
+
+driver.quit();
