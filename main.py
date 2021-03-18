@@ -28,7 +28,8 @@ print(driver.title)
 time.sleep(3)
 
 #find_element_by_class_name('block prepaid')
-driver.find_element_by_name("عرض التفاصيل").click()
+driver.find_element_by_css_selector(button.btn.btn-primary).click()
+#driver.find_element_by_name("عرض التفاصيل").click()
 time.sleep(3)
 print(driver.title)
 
