@@ -27,7 +27,8 @@ print(driver.title)
 # login successful
 time.sleep(3)
 
-button = driver.find_element_by_name("عرض التفاصيل")
+
+button = driver.find_element_by_link_text("عرض التفاصيل")
 button.click()
 time.sleep(3)
 print(driver.title)
