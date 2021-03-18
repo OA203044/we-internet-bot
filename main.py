@@ -13,4 +13,4 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 driver.get('http://www.google.com');
 print(driver.title)
 
-driver.quit();
+#driver.quit();
