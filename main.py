@@ -27,9 +27,8 @@ print(driver.title)
 # login successful
 time.sleep(3)
 
-find_element_by_class_name('block prepaid')
-button = driver.find_element_by_link_text("عرض التفاصيل")
-button.click()
+#find_element_by_class_name('block prepaid')
+driver.find_element_by_name("عرض التفاصيل").click()
 time.sleep(3)
 print(driver.title)
 
