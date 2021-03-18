@@ -1,3 +1,4 @@
+from selenium import selenium
 from selenium import webdriver
 import os
 
@@ -12,4 +13,4 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 driver.get('http://www.google.com');
 print(driver.page_source)
 
-driver.quit();
+#driver.quit();
