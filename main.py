@@ -27,7 +27,7 @@ time.sleep(3)
 
 # login successful
 print(driver.title)
-print(driver.find_element_by_css_selector('strong.#text').text)
+print(driver.find_element_by_css_selector('tspan').text)
 time.sleep(3)
 
 #اضغط ع تفاصيل الاستهلاك
