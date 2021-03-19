@@ -27,8 +27,10 @@ time.sleep(3)
 
 # login successful
 print(driver.title)
+
+# getting remainning GB
 array=driver.find_elements_by_css_selector('tspan')
-print(array[3].text)
+GB=float(array[3].text)
 time.sleep(3)
 
 #اضغط ع تفاصيل الاستهلاك
@@ -48,7 +50,7 @@ now = datetime.now()
 difference = now-date_formatted
 #الايام المتبقية
 days=30-difference.days
-print(days)
+print(GB/days)
 
 
 
