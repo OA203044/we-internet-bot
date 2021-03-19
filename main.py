@@ -27,7 +27,8 @@ time.sleep(3)
 
 # login successful
 print(driver.title)
-print(driver.find_element_by_css_selector('tspan').text)
+array=driver.find_elements_by_css_selector('tspan').text
+print(arr[3])
 time.sleep(3)
 
 #اضغط ع تفاصيل الاستهلاك
@@ -37,7 +38,6 @@ print(driver.title)
 
 
 
-#driver.find_element_by_xpath("//*[text()='يوم']"))
 #get_attribute("value")
 # تاريخ الشحن ك نص
 date_text= driver.find_element_by_css_selector('div.col-sm-6').text
