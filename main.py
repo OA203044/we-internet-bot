@@ -56,11 +56,6 @@ rate=GB/days
 print("%.2f" % rate)
 driver.get ('https://github.com')
 
-time.sleep(20)
+time.sleep(2)
 
-
-
-
-
-
-#driver.quit()
+driver.quit()
