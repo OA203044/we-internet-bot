@@ -59,4 +59,4 @@ print("%.2f" % rate)
 
 
 
-driver.quit()
+#driver.quit()
