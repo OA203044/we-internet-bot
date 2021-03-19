@@ -1,6 +1,7 @@
 import selenium
-import time
 from selenium import webdriver
+import time
+from datetime import datetime, timezone
 import os
 
 chrome_options = webdriver.ChromeOptions()
@@ -36,8 +37,17 @@ print(driver.title)
 
 #driver.find_element_by_xpath("//*[text()='يوم']"))
 #get_attribute("value")
-print(driver.find_element_by_css_selector('div.col-sm-6').text)
-print(driver.find_element_by_css_selector('div.col-sm-6').text)
+# تاريخ الشحن ك نص
+date_text= driver.find_element_by_css_selector('div.col-sm-6').text
+# تحويل النص لتاريخ
+date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
+#get current date and time
+today = date.today()
+difference = today-date_formatted
+#الايام المتبقية
+days=30-difference.days
+print(days)
+
 
 
 
