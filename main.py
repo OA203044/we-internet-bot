@@ -33,6 +33,7 @@ time.sleep(3)
 print(driver.title)
 
 #driver.find_element_by_xpath("//*[text()='يوم']"))
+#get_attribute("value")
 print(driver.find_element_by_css_selector('div.col-sm-6').text)
 
 
