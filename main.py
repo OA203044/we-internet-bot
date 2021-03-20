@@ -60,11 +60,11 @@ while(True):
   # Sending email
 
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-  server.ehlo() 
-  server.starttls()
-  server.ehlo() 
+  #server.ehlo() 
+  #server.starttls()
+  #server.ehlo() 
 
-  server.login("omarashraf02030@gmail.com", "mni0AMHK")
+  server.login("omarashraf02030@gmail.com", "czmvivdzwcxzqrba")
 
   rate = str(round(rate, 2))
   print(rate)
@@ -110,21 +110,6 @@ while(True):
   time.sleep(1530)
   driver.get ('https://dogehouse.tv')
   time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
-  driver.get ('https://dogehouse.tv')
-  time.sleep(1530)
+  
 
 #driver.quit()
