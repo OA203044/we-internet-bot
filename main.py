@@ -24,7 +24,7 @@ time.sleep(1)
 driver.find_element_by_id ('PasswordID').send_keys('mni0AMHK')
 time.sleep(1)
 driver.find_element_by_id('singInBtn').click()
-time.sleep(3)
+time.sleep(4)
 
 
 # login successful
@@ -33,7 +33,7 @@ print(driver.title)
 # getting remainning GB
 array=driver.find_elements_by_css_selector('tspan')
 GB=float(array[3].text)
-time.sleep(3)
+time.sleep(4)
 
 #اضغط ع تفاصيل الاستهلاك
 driver.find_element_by_css_selector('button.btn.btn-primary').click()
@@ -69,8 +69,7 @@ server.login("omarashraf02030@gmail.com", "mni0AMHK")
 rate = str(round(rate, 2))
 print(rate)
 date = date_formatted + timedelta(30)
-print(str(date))
-
+date = date.strftime("%d/%m/%Y")
 rate_str = '#Rate: ' + str(rate) + ' GB'
 days_str = '#Remaining: ' + str(days) + ' days'
 date_str = '#You have to recharge before: ' + str(date)
