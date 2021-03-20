@@ -55,7 +55,8 @@ while 2>1:
   rate=GB/days
   print("%.2f" % rate)
   time.sleep(5)
-  driver.get ('https://my.te.eg/#/home/signin')
+  
+  driver.find_element_by_xpath('/html/body/ecare-app/div/header/div[2]/div/div/div[2]/nav/ul/li[5]/div/div/div/div[1]/div/div[2]/div/a').click()
   time.sleep(3)
   print(driver.title)
   time.sleep(5)
