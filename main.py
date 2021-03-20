@@ -14,79 +14,117 @@ chrome_options.add_argument("--no-sandbox")
 driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
 
 # Now you can start using Selenium
+while(True):
+  driver.get ('https://my.te.eg/#/home/signin')
+  print(driver.title)
 
-driver.get ('https://my.te.eg/#/home/signin')
-print(driver.title)
-
-time.sleep(3)
-driver.find_element_by_id('MobileNumberID').send_keys('0238728551')
-time.sleep(1)
-driver.find_element_by_id ('PasswordID').send_keys('mni0AMHK')
-time.sleep(1)
-driver.find_element_by_id('singInBtn').click()
-time.sleep(4)
-
-
-# login successful
-print(driver.title)
-
-# getting remainning GB
-array=driver.find_elements_by_css_selector('tspan')
-GB=float(array[3].text)
-time.sleep(4)
-
-#اضغط ع تفاصيل الاستهلاك
-driver.find_element_by_css_selector('button.btn.btn-primary').click()
-time.sleep(3)
-print(driver.title)
+  time.sleep(3)
+  driver.find_element_by_id('MobileNumberID').send_keys('0238728551')
+  time.sleep(1)
+  driver.find_element_by_id ('PasswordID').send_keys('mni0AMHK')
+  time.sleep(1)
+  driver.find_element_by_id('singInBtn').click()
+  time.sleep(4)
 
 
+  # login successful
+  print(driver.title)
 
-#get_attribute("value")
-# تاريخ الشحن ك نص
-date_text= driver.find_element_by_css_selector('div.col-sm-6').text
-# تحويل النص لتاريخ
-date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
-#get current date and time
-now = datetime.now()
-difference = now-date_formatted
-#الايام المتبقية
-days=30-difference.days
-# معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
-rate=GB/days
-#print("%.2f" % rate)
-time.sleep(5)
+  # getting remainning GB
+  array=driver.find_elements_by_css_selector('tspan')
+  GB=float(array[3].text)
+  time.sleep(4)
 
-# Sending email
-
-server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-#server.ehlo() 
-#server.starttls()
-#server.ehlo() 
-
-server.login("omarashraf02030@gmail.com", "mni0AMHK")
-
-rate = str(round(rate, 2))
-print(rate)
-date = date_formatted + timedelta(30)
-date = date.strftime("%d/%m/%Y")
-rate_str = '#Rate: ' + str(rate) + ' GB'
-days_str = '#Remaining: ' + str(days) + ' days'
-date_str = '#You have to recharge before: ' + str(date)
-
-subject = 'WE Internet Consumption'
-body = rate_str + '\n\n' + days_str + '\n\n' + date_str
-msg = f'Subject: {subject}\n\n{body}'
-
-server.sendmail('omarashraf02030@gmail.com', 'omarashraf203045@gmail.com', msg)
-
-print('\n### Email was sent successfully! ###')
-server.quit()
+  #اضغط ع تفاصيل الاستهلاك
+  driver.find_element_by_css_selector('button.btn.btn-primary').click()
+  time.sleep(3)
+  print(driver.title)
 
 
-# Wasting time 1728*100 = 48 hours
-driver.get ('https://dogehouse.tv')
-time.sleep(1728)
 
+  #get_attribute("value")
+  # تاريخ الشحن ك نص
+  date_text= driver.find_element_by_css_selector('div.col-sm-6').text
+  # تحويل النص لتاريخ
+  date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
+  #get current date and time
+  now = datetime.now()
+  difference = now-date_formatted
+  #الايام المتبقية
+  days=30-difference.days
+  # معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
+  rate=GB/days
+  #print("%.2f" % rate)
+  time.sleep(5)
+
+  # Sending email
+
+  server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+  #server.ehlo() 
+  #server.starttls()
+  #server.ehlo() 
+
+  server.login("omarashraf02030@gmail.com", "mni0AMHK")
+
+  rate = str(round(rate, 2))
+  print(rate)
+  date = date_formatted + timedelta(30)
+  date = date.strftime("%d/%m/%Y")
+  rate_str = '#Rate: ' + str(rate) + ' GB'
+  days_str = '#Remaining: ' + str(days) + ' days'
+  date_str = '#You have to recharge before: ' + str(date)
+
+  subject = 'WE Internet Consumption'
+  body = rate_str + '\n\n' + days_str + '\n\n' + date_str
+  msg = f'Subject: {subject}\n\n{body}'
+
+  server.sendmail('omarashraf02030@gmail.com', 'omarashraf203045@gmail.com', msg)
+
+  print('\n### Email was sent successfully! ###')
+  server.quit()
+
+
+  # Wasting time 1728*100 = 48 hours
+  # tst for الاحد الساعة 6 و شوية
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
+  driver.get ('https://dogehouse.tv')
+  time.sleep(1530)
 
 #driver.quit()
