@@ -59,7 +59,11 @@ time.sleep(5)
 
 # Sending email
 
-server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+server = smtplib.SMTP_SSL("smtp.gmail.com", 587)
+server.ehlo() 
+server.starttls()
+server.ehlo() 
+
 server.login("omarashraf02030@gmail.com", "mni0AMHK")
 
 rate = str(round(rate, 2))
