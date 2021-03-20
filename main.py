@@ -1,9 +1,10 @@
 import selenium
 from selenium import webdriver
-from selenium.webdriver.common.action_chains import ActionChains
 import time
 from datetime import datetime
 import os
+import smtplib
+
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -53,10 +54,36 @@ difference = now-date_formatted
 days=30-difference.days
 # معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
 rate=GB/days
-print("%.2f" % rate)
+#print("%.2f" % rate)
 time.sleep(5)
 
+# Sending email
 
+server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
+server.login("omarashraf02030@gmail.com", "mni0AMHK")
+
+rate = str(round(rate, 2))
+print(rate)
+date = date_formatted + datetime.timedelta(days=30)
+print(str(date))
+
+rate_str = '#Rate: ' + str(rate) + ' GB'
+days_str = '#Remaining: ' + str(days) + ' days'
+date_str = '#You have to recharge before: ' + str(date)
+
+subject = 'WE Internet Consumption'
+body = rate_str + '\n\n' + days_str + '\n\n' + date_str
+msg = f'Subject: {subject}\n\n{body}'
+
+server.sendmail('omarashraf02030@gmail.com', 'omarashraf203045@gmail.com', msg)
+
+print('\n### Email was sent successfully! ###')
+server.quit()
+
+
+# Wasting time 1728*100 = 48 hours
+driver.get ('https://dogehouse.tv')
+time.sleep(1728)
 
 
 #driver.quit()
