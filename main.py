@@ -56,15 +56,7 @@ rate=GB/days
 print("%.2f" % rate)
 time.sleep(5)
 
-
-arr22=driver.find_elements_by_css_selector('a.btn.inline-block.l-full')
-print(arr22[0].text)
-print(arr22[1].text)
-print(arr22[2].text)
-
-
-time.sleep(3)
 print(driver.title)
-time.sleep(5)
+time.sleep(1)
 
-#driver.quit()
+driver.quit()
