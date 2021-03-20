@@ -55,7 +55,7 @@ while 2>1:
   rate=GB/days
   print("%.2f" % rate)
   driver.get ('https://github.com')
-
+  print(driver.title)
   time.sleep(5)
 
 #driver.quit()
