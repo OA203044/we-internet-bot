@@ -55,7 +55,7 @@ while 2>1:
   rate=GB/days
   print("%.2f" % rate)
   time.sleep(5)
-  driver.find_element_by_link_text('الخروج من حسابك').click()
+  driver.find_element_by_partial_link_text('الخروج').click()
   time.sleep(3)
   print(driver.title)
   time.sleep(5)
