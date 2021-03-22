@@ -7,11 +7,12 @@ import smtplib
 
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.binary_location = "/app/.apt/usr/bin/google-chrome "
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path= "/app/.chromedriver/bin/chromedriver", chrome_options=chrome_options)
+
 
 # Now you can start using Selenium
 while(True):
@@ -69,7 +70,7 @@ while(True):
   date = date_formatted + timedelta(30)
   date = date.strftime("%d/%m/%Y")
   rate_str = '#Rate: ' + str(rate) + ' GB'
-  days_str = '#Remaining: ' + str(days) + ' days'
+  days_str = '#Remaining: ' +str(GB)+ 'GB & '+ str(days) + ' days'
   date_str = '#You have to recharge before: ' + str(date)
 
   subject = 'WE Internet Consumption'
