@@ -30,7 +30,7 @@ while(True):
 
   # login successful
   print(driver.title)
-
+  time.sleep(3)
   # getting remainning GB
   array=driver.find_elements_by_css_selector('tspan')
   GB=float(array[3].text)
