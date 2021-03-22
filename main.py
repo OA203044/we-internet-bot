@@ -7,11 +7,11 @@ import smtplib
 
 
 chrome_options = webdriver.ChromeOptions()
-chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
+chrome_options.binary_location = os.environ.get("/app/.apt/usr/bin/google-chrome")
 chrome_options.add_argument("--headless")
 chrome_options.add_argument("--disable-dev-shm-usage")
 chrome_options.add_argument("--no-sandbox")
-driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), chrome_options=chrome_options)
+driver = webdriver.Chrome(executable_path=os.environ.get("/app/.chromedriver/bin/chromedriver"), chrome_options=chrome_options)
 
 # Now you can start using Selenium
 while(True):
@@ -19,9 +19,9 @@ while(True):
   print(driver.title)
 
   time.sleep(3)
-  driver.find_element_by_id('MobileNumberID').send_keys('0238728551')
+  driver.find_element_by_id('MobileNumberID').send_keys('heroku_var_WENum')
   time.sleep(1)
-  driver.find_element_by_id ('PasswordID').send_keys('mni0AMHK')
+  driver.find_element_by_id ('PasswordID').send_keys('heroku_var_WEpass')
   time.sleep(1)
   driver.find_element_by_id('singInBtn').click()
   time.sleep(4)
@@ -60,11 +60,9 @@ while(True):
   # Sending email
 
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
-  #server.ehlo() 
-  #server.starttls()
-  #server.ehlo() 
-
-  server.login("omarashraf02030@gmail.com", "czmvivdzwcxzqrba")
+  
+  # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
+  server.login("heroku_var_sndrEmail", "heroku_var_2FApass")
 
   rate = str(round(rate, 2))
   print(rate)
@@ -78,7 +76,7 @@ while(True):
   body = rate_str + '\n\n' + days_str + '\n\n' + date_str
   msg = f'Subject: {subject}\n\n{body}'
 
-  server.sendmail('omarashraf02030@gmail.com', 'omarashraf203045@gmail.com', msg)
+  server.sendmail('heroku_var_sndrEmail', 'heroku_var_rcvrEmail', msg)
 
   print('\n### Email was sent successfully! ###')
   server.quit()
