@@ -83,6 +83,7 @@ while(True):
   server.quit()
 
 
+  
   # Wasting time 1728*100 = 48 hours
   driver.get ('https://dogehouse.tv')
   time.sleep(1728)
