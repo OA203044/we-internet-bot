@@ -70,7 +70,7 @@ while(True):
   date = date_formatted + timedelta(30)
   date = date.strftime("%d/%m/%Y")
   rate_str = '#Rate: ' + str(rate) + ' GB'
-  days_str = '#Remaining: ' +str(GB)+ 'GB & '+ str(days) + ' days'
+  days_str = '#Remaining: ' +str(GB)+ ' GB & '+ str(days) + ' days'
   date_str = '#You have to recharge before: ' + str(date)
 
   subject = 'WE Internet Consumption'
