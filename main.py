@@ -19,9 +19,9 @@ while(True):
   print(driver.title)
 
   time.sleep(3)
-  driver.find_element_by_id('MobileNumberID').send_keys('heroku_var_WENum')
+  driver.find_element_by_id('MobileNumberID').send_keys(heroku_var_WENum)
   time.sleep(1)
-  driver.find_element_by_id ('PasswordID').send_keys('heroku_var_WEpass')
+  driver.find_element_by_id ('PasswordID').send_keys(heroku_var_WEpass)
   time.sleep(1)
   driver.find_element_by_id('singInBtn').click()
   time.sleep(4)
@@ -62,7 +62,7 @@ while(True):
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
   
   # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
-  server.login("heroku_var_sndrEmail", "heroku_var_2FApass")
+  server.login(heroku_var_sndrEmail, heroku_var_2FApass)
 
   rate = str(round(rate, 2))
   print(rate)
@@ -76,7 +76,7 @@ while(True):
   body = rate_str + '\n\n' + days_str + '\n\n' + date_str
   msg = f'Subject: {subject}\n\n{body}'
 
-  server.sendmail('heroku_var_sndrEmail', 'heroku_var_rcvrEmail', msg)
+  server.sendmail(heroku_var_sndrEmail, heroku_var_rcvrEmail, msg)
 
   print('\n### Email was sent successfully! ###')
   server.quit()
