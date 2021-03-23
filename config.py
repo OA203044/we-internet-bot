@@ -18,7 +18,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 
 ############### Code starts here ###############
-
+import selenium
 from selenium import webdriver
 import time
 from datetime import datetime, timedelta
