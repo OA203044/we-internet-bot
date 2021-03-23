@@ -10,7 +10,7 @@ scheduler1 = schedule.Scheduler()
 scheduler2 = schedule.Scheduler()
 
 scheduler1.every(28).minutes.do(wakeDyno)
-scheduler2.every().day.at("17:24").do(job)
+scheduler2.every().day.at("17:26").do(job)
 
 while True:
   scheduler1.run_pending()
