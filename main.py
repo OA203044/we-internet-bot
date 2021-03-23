@@ -1,9 +1,3 @@
-import selenium
-from selenium import webdriver
-import time
-from datetime import datetime, timedelta
-import os
-import smtplib
 from config import WeLogin, SendMail, wakeDyno
 
 chrome_options = webdriver.ChromeOptions()
