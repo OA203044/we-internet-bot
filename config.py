@@ -25,8 +25,6 @@ from datetime import datetime, timedelta
 import os
 import smtplib
 
-global GB,date_formatted,rate,days
-
 
 # Selenium stuff (optimized for heroku)
 chrome_options = webdriver.ChromeOptions()
@@ -57,7 +55,7 @@ def WeLogin():
   time.sleep(3)
   # getting remainning GB
   array=driver.find_elements_by_css_selector('tspan')
-  GB=float(array[3].text)
+  global GB=float(array[3].text)
   time.sleep(4)
 
   #اضغط ع تفاصيل الاستهلاك
@@ -68,26 +66,27 @@ def WeLogin():
   # تاريخ الشحن ك نص
   date_text= driver.find_element_by_css_selector('div.col-sm-6').text
   # تحويل النص لتاريخ
-  date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
+  global date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
   #get current date and time
   now = datetime.now()
   difference = now-date_formatted
   #الايام المتبقية
-  days=30-difference.days
+  global days=30-difference.days
   # معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
-  rate=GB/days
+  global rate=GB/days
   #print("%.2f" % rate)
   time.sleep(5)
     
 ##############################
   
 def SendMail():  
+  WeLogin()
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
   # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
   server.login(os.environ.get("heroku_var_sndrEmail"), os.environ.get("heroku_var_2FApass"))
-  
-  tmp=rate
-  rate = str(round(tmp, 2))
+    
+  print(rate)
+  rate = str(round(rate, 2))
   print(rate)
   date = date_formatted + timedelta(30)
   date = date.strftime("%d/%m/%Y")
