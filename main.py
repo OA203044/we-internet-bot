@@ -4,8 +4,7 @@ import time
 from datetime import datetime, timedelta
 import os
 import smtplib
-import config.py
-
+import config
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
