@@ -9,7 +9,7 @@ def job():
   WeLogin()
   SendMail()
   
-schedule.every(2).day.at("4:25").do(job)
+schedule.every(2).days.at("4:25").do(job)
 
 
 while True:
