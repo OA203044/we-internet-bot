@@ -55,7 +55,8 @@ def WeLogin():
   time.sleep(3)
   # getting remainning GB
   array=driver.find_elements_by_css_selector('tspan')
-  global GB=float(array[3].text)
+  global GB
+  GB=float(array[3].text)
   time.sleep(4)
 
   #اضغط ع تفاصيل الاستهلاك
@@ -66,14 +67,17 @@ def WeLogin():
   # تاريخ الشحن ك نص
   date_text= driver.find_element_by_css_selector('div.col-sm-6').text
   # تحويل النص لتاريخ
-  global date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
+  global date_formatted
+  date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
   #get current date and time
   now = datetime.now()
   difference = now-date_formatted
   #الايام المتبقية
-  global days=30-difference.days
+  global days
+  days=30-difference.days
   # معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
-  global rate=GB/days
+  global rate
+  rate = GB/days
   #print("%.2f" % rate)
   time.sleep(5)
     
