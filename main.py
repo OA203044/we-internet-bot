@@ -4,7 +4,7 @@ import time
 from datetime import datetime, timedelta
 import os
 import smtplib
-import config
+from config import WeLogin, SendMail, wakeDyno
 
 chrome_options = webdriver.ChromeOptions()
 chrome_options.binary_location = os.environ.get("GOOGLE_CHROME_BIN")
@@ -15,8 +15,8 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 
 
 # Now you can start using Selenium
-config.WeLogin()
-config.SendMail()
+WeLogin()
+SendMail()
 
   
  
