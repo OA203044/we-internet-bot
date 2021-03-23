@@ -77,9 +77,13 @@ def WeLogin():
   #print("%.2f" % rate)
   time.sleep(5)
   
+  return GB,date_formatted,rate,days # just to be able to use those variables in other functions
+  
 ##############################
   
 def SendMail():
+  GB,date_formatted,rate,days = WeLogin() 
+  
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
   # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
   server.login(os.environ.get("heroku_var_sndrEmail"), os.environ.get("heroku_var_2FApass"))
