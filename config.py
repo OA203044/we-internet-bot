@@ -52,20 +52,20 @@ def WeLogin():
   driver.find_element_by_id ('PasswordID').send_keys(os.environ.get("heroku_var_WEpass"))
   time.sleep(1)
   driver.find_element_by_id('singInBtn').click()
-  time.sleep(4)
+  time.sleep(5)
 
 
   # login successful
   print(driver.title)
-  time.sleep(3)
   # getting remainning GB
   array=driver.find_elements_by_css_selector('tspan')
+  time.sleep(2)
   GB=float(array[3].text)
-  time.sleep(4)
+  time.sleep(3)
 
   #اضغط ع تفاصيل الاستهلاك
   driver.find_element_by_css_selector('button.btn.btn-primary').click()
-  time.sleep(3)
+  time.sleep(2)
   print(driver.title)
 
   # تاريخ الشحن ك نص
@@ -91,11 +91,9 @@ def SendMail():
   global date_formatted
   global GB
 
-
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
   # you need to trun on 2FA on the sender email, and then get an app password (goole that if u don't know ehat i'm taking about)
   server.login(os.environ.get("heroku_var_sndrEmail"), os.environ.get("heroku_var_2FApass"))
-  print(rate)
   rate = str(round(rate, 2))
   print(rate)
   date = date_formatted + timedelta(30)
@@ -118,6 +116,7 @@ def SendMail():
 # if dyno receives no web traffic in a 30-minute period, it will sleep! so we will run this func. every 29 min or so
 def wakeDyno(): 
   driver.get ('https://docs.python.org/3')
+  print('didn\'t sleep yet!')
     
 ##############################
 
