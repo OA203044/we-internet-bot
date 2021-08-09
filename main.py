@@ -9,7 +9,7 @@ def job():
 
   
 WeLogin() 
-  
+SendMail()  
   
 scheduler1 = schedule.Scheduler()
 scheduler2 = schedule.Scheduler()
