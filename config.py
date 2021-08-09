@@ -20,6 +20,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 ############### Code starts here ###############
 import selenium
 from selenium import webdriver
+from selenium.common.exceptions import NoSuchElementException
 import time
 from datetime import datetime, timedelta
 import os
@@ -49,10 +50,13 @@ def WeLogin():
   driver.get ('https://my.te.eg/#/home/signin')
   print(driver.title)
 
-  time.sleep(3)
-  driver.find_element_by_id('serviceNo').send_keys(os.environ.get("heroku_var_WENum"))
-  print("numOK")
-  time.sleep(1)
+  time.sleep(6)
+  try:
+    driver.find_element_by_id('serviceNo').send_keys(os.environ.get("heroku_var_WENum"))
+    print("numOK")
+    time.sleep(1)
+  except NoSuchElementException as e:
+    print e
   driver.find_element_by_id ('password').send_keys(os.environ.get("heroku_var_WEpass"))
   print("passOK")
   time.sleep(1)
