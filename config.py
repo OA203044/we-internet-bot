@@ -50,9 +50,11 @@ def WeLogin():
   print(driver.title)
 
   time.sleep(3)
-  driver.find_element_by_id('MobileNumberID').send_keys(os.environ.get("heroku_var_WENum"))
+  driver.find_element_by_id('serviceNo').send_keys(os.environ.get("heroku_var_WENum"))
+  print("numOK")
   time.sleep(1)
-  driver.find_element_by_id ('PasswordID').send_keys(os.environ.get("heroku_var_WEpass"))
+  driver.find_element_by_id ('password').send_keys(os.environ.get("heroku_var_WEpass"))
+  print("passOK")
   time.sleep(1)
   driver.find_element_by_id('singInBtn').click()
   time.sleep(5)
