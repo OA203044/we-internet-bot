@@ -7,6 +7,10 @@ def job():
   WeLogin()
   SendMail()
 
+  
+ WeLogin() 
+  
+  
 scheduler1 = schedule.Scheduler()
 scheduler2 = schedule.Scheduler()
 scheduler3 = schedule.Scheduler()
