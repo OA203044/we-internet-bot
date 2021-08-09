@@ -47,7 +47,7 @@ def WeLogin():
   global date_formatted
   global GB
   
-  driver.get ('https://my.te.eg/#/home/signin')
+  driver.get ('https://my.te.eg/user/login')
   print(driver.title)
 
   time.sleep(6)
