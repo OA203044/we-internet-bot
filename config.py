@@ -62,18 +62,21 @@ def WeLogin():
   # login successful
   print(driver.title)
   # getting remainning GB
-  array=driver.find_elements_by_css_selector('tspan')
-  time.sleep(2)
-  GB=float(array[3].text)
-  time.sleep(3)
+  ff = driver.find_element_by_class_name('usage-details').text
+  usedGB = float(ff[:len(ff)-5]) #extract the number from text
+  GB = 140 - usedGB
+  time.sleep(1)
 
   #اضغط ع تفاصيل الاستهلاك
-  driver.find_element_by_css_selector('button.btn.btn-primary').click()
-  time.sleep(2)
+  driver.get('https://my.te.eg/offering/overview')  time.sleep(2)
   print(driver.title)
 
   # تاريخ الشحن ك نص
-  date_text= driver.find_element_by_css_selector('div.col-sm-6').text
+  driver.get('https://my.te.eg/offering/overview')
+  time.sleep(2)
+  tt = driver.find_element_by_class_name('mr-auto').text
+  date_text = tt[14:24]
+  
   # تحويل النص لتاريخ
   date_formatted = datetime.strptime(date_text,"%Y-%m-%d")
   #get current date and time
@@ -81,10 +84,10 @@ def WeLogin():
   difference = now-date_formatted
   #الايام المتبقية
   days=30-difference.days
-  # معدل الاستهلاك ... المعدل الطبيعي 250/30 = 8.33 جيجا في اليوم
+  # معدل الاستهلاك ... المعدل الطبيعي 140/30 = 4.66 جيجا في اليوم
   rate = GB/days
   #print("%.2f" % rate)
-  time.sleep(5)
+  time.sleep(3)
   driver.quit()
     
 ##############################
