@@ -85,6 +85,8 @@ def WeLogin():
   days=30-difference.days
   # معدل الاستهلاك ... المعدل الطبيعي 140/30 = 4.66 جيجا في اليوم
   rate = GB/days
+  print(days)
+  print(rate)
   #print("%.2f" % rate)
   time.sleep(3)
   driver.quit()
