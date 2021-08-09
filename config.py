@@ -56,7 +56,7 @@ def WeLogin():
   time.sleep(1)
   arr=driver.find_elements_by_css_selector('span.p-button-label')
   arr[1].click()
-  time.sleep(3)
+  time.sleep(4)
 
 
   # login successful
@@ -69,12 +69,10 @@ def WeLogin():
 
   #اضغط ع تفاصيل الاستهلاك
   driver.get('https://my.te.eg/offering/overview')  
-  time.sleep(2)
+  time.sleep(3)
   print(driver.title)
 
   # تاريخ الشحن ك نص
-  driver.get('https://my.te.eg/offering/overview')
-  time.sleep(2)
   tt = driver.find_element_by_class_name('mr-auto').text
   date_text = tt[14:24]
   
