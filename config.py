@@ -68,7 +68,8 @@ def WeLogin():
   time.sleep(1)
 
   #اضغط ع تفاصيل الاستهلاك
-  driver.get('https://my.te.eg/offering/overview')  time.sleep(2)
+  driver.get('https://my.te.eg/offering/overview')  
+  time.sleep(2)
   print(driver.title)
 
   # تاريخ الشحن ك نص
@@ -109,7 +110,7 @@ def SendMail():
   date = date.strftime("%d/%m/%Y")
   rate_str = '#Rate: ' + str(rate) + ' GB'
   days_str = '#Remaining: ' +str(GB)+ ' GB & '+ str(days) + ' days'
-  date_str = '#You have to recharge before: ' + str(date)
+  date_str = '#Ends at: ' + str(date)
 
   subject = 'WE Internet Consumption'
   body = rate_str + '\n\n' + days_str + '\n\n' + date_str
