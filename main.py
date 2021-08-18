@@ -24,17 +24,17 @@ while True:
   try:
     scheduler1.run_pending()
     scheduler2.run_pending()
-    scheduler3.run_pending()
-    scheduler4.run_pending()
+    #scheduler3.run_pending()
+    #scheduler4.run_pending()
   except:
     time.sleep(5)
     scheduler1.run_pending()
     time.sleep(5)
     scheduler2.run_pending()
     time.sleep(5)
-    scheduler3.run_pending()
+    #scheduler3.run_pending()
     time.sleep(5)
-    scheduler4.run_pending()
+    #scheduler4.run_pending()
   time.sleep(1)
 
   
