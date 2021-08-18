@@ -47,7 +47,12 @@ driver = webdriver.Chrome(executable_path=os.environ.get("CHROMEDRIVER_PATH"), c
 ############### Functions ###############
 
 def WeLogin():
-  
+  global rate
+  global days
+  global date_text
+  global GB
+  global remaining_normal
+  global extraGB
   
   driver.get ('https://my.te.eg/user/login')
   time.sleep(5)
