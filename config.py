@@ -100,6 +100,7 @@ def WeLogin():
   days = int(days_text)
   remaining_normal = days*4.6667 # remaining days * normal rate
   extraGB = GB  - remaining_normal
+  extraGB = float(round(extraGB, 2))
   rate = GB/days
   print(days)
   #print("%.2f" % rate)
@@ -120,12 +121,12 @@ def SendMail():
   #date = date_formatted + timedelta(30)
   #date = date.strftime("%d/%m/%Y")
   extraGB_str = '#Extra GB: ' + str(extraGB) + ' GB'
-  rate_str = '#Rate: ' + str(rate) + ' GB'
+  #rate_str = '#Rate: ' + str(rate) + ' GB'
   days_str = '#Remaining: ' +str(GB)+ ' GB & '+ str(days) + ' days'
   date_str = '#Ends at: ' + str(date_text)
 
   subject = 'WE Internet Consumption'
-  body = extraGB_str + '\n\n' + rate_str + '\n\n' + days_str + '\n\n' + date_str
+  body = extraGB_str + '\n\n' + days_str + '\n\n' + date_str
   msg = f'Subject: {subject}\n\n{body}'
 
   server.sendmail(os.environ.get("heroku_var_sndrEmail"), os.environ.get("heroku_var_rcvrEmail"), msg)
