@@ -111,6 +111,7 @@ def WeLogin():
   
 def SendMail():  
   global rate
+  global acounter
   acounter=0
 
   server = smtplib.SMTP_SSL("smtp.gmail.com", 465)
