@@ -140,11 +140,11 @@ def SendMail():
 # if dyno receives no web traffic in a 30-minute period, it will sleep! so we will run this func. every 29 min or so
 def wakeDyno(): 
   global acounter
-  acounter+=1
+  #acounter+=1
   
   driver.get ('https://docs.python.org/3')
   print('didn\'t sleep yet!')
-  print('# about '+str(round(acounter*28/60,2))+ ' hours has passed!')
+  #print('# about '+str(round(acounter*28/60,2))+ ' hours has passed!')
     
 ##############################
 
